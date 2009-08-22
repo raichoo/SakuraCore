@@ -1,0 +1,19 @@
+#ifndef _PROCESS_HPP
+
+#ifndef _PROCESS_PRO
+#define _PROCESS_PRO
+namespace Sakura {
+    namespace Core {
+
+        class Process;
+
+    }
+}
+#endif
+
+#ifndef LIBRARY
+#include <Core/Process.hpp>
+#endif
+
+#endif
+

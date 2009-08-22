@@ -1,0 +1,22 @@
+#ifndef _INTEGRALTYPE_HPP
+
+#ifndef _INTEGRALTYPE_PRO
+#define _INTEGRALTYPE_PRO
+namespace Sakura {
+    namespace Core {
+        namespace Types {
+
+            template <typename T>
+            class IntegralType;
+
+        }
+    }
+}
+#endif
+
+#ifndef LIBRARY
+#include <Core/Types/IntegralType.hpp>
+#endif
+
+#endif
+

@@ -1,0 +1,24 @@
+#ifndef _INTEGER_HPP
+
+#ifndef _INTEGER_PRO
+#define _INTEGER_PRO
+namespace Sakura {
+    namespace Core {
+        namespace Types {
+
+            template <typename T>
+            class IntegralType;
+
+            typedef IntegralType<signed int> Integer;
+
+        }
+    }
+}
+#endif
+
+#ifndef LIBRARY
+#include <Core/Types/Integer.hpp>
+#endif
+
+#endif
+

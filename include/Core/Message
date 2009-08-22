@@ -1,0 +1,19 @@
+#ifndef _MESSAGE_HPP
+
+#ifndef _MESSAGE_PRO
+#define _MESSAGE_PRO
+namespace Sakura {
+    namespace Core {
+
+        class Message;
+
+    }
+}
+#endif
+
+#ifndef LIBRARY
+#include <Core/Message.hpp>
+#endif
+
+#endif
+

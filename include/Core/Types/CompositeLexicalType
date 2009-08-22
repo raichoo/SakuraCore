@@ -1,0 +1,22 @@
+#ifndef _COMPOSITELEXICALTYPE_HPP
+
+#ifndef _COMPOSITELEXICALTYPE_PRO
+#define _COMPOSITELEXICALTYPE_PRO
+namespace Sakura {
+    namespace Core {
+        namespace Types {
+
+            template <typename T>
+            class CompositeLexicalType;
+
+        }
+    }
+}
+#endif
+
+#ifndef LIBRARY
+#include <Core/Types/CompositeLexicalType.hpp>
+#endif
+
+#endif
+

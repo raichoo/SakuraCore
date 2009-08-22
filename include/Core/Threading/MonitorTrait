@@ -1,0 +1,22 @@
+#ifndef _MONITORTRAIT_HPP
+
+#ifndef _MONITORTRAIT_PRO
+#define _MONITORTRAIT_PRO
+namespace Sakura {
+    namespace Core {
+        namespace Threading {
+
+            template <typename T>
+            class MonitorTrait;
+
+        }
+    }
+}
+#endif
+
+#ifndef LIBRARY
+#include <Core/Threading/MonitorTrait.hpp>
+#endif
+
+#endif
+

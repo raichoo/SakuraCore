@@ -1,0 +1,20 @@
+#ifndef _TYPEMONITOR_HPP
+
+#ifndef _TYPEMONITOR_PRO
+#define _TYPEMONITOR_PRO
+namespace Sakura {
+    namespace Core {
+
+        template <typename T>
+        class TypeMonitor;
+
+    }
+}
+#endif
+
+#ifndef LIBRARY
+#include <Core/Threading/TypeMonitor.hpp>
+#endif
+
+#endif
+

@@ -1,0 +1,20 @@
+#ifndef _ABSTRACTFUNCTOR_HPP
+#ifndef _ABSTRACTFUNCTOR_PRO
+#define _ABSTRACTFUNCTOR_PRO
+
+namespace Sakura {
+    namespace Core {
+
+        class AbstractFunctor;
+
+    }
+}
+
+#endif
+
+#ifndef LIBRARY
+#include <Core/AbstractFunctor.hpp>
+#endif
+
+#endif
+

@@ -1,0 +1,23 @@
+#ifndef _OBJECT_PRO
+#define _OBJECT_PRO
+
+#ifndef LIBRARY
+#define LIBRARY
+#include <Core/Object.hpp>
+#undef LIBRARY
+#else
+#include <Core/Object.hpp>
+#endif
+
+#ifndef LIBRARY
+#include <Core/Reference.hpp>
+#include <Core/Types/String.hpp>
+#include <Core/AbstractFunctor.hpp>
+#include <Core/Message.hpp>
+#include <Core/Threading/synchronized.hpp>
+
+using Sakura::Core::Threading::synchronized;
+
+#endif
+
+#endif

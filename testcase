@@ -1,0 +1,2 @@
+#!/bin/ksh
+DYLD_LIBRARY_PATH="/Users/raichoo/Projects/SakuraCore/build" ./main

@@ -1,0 +1,24 @@
+#ifndef _STRING_HPP
+
+#ifndef _STRING_PRO
+#define _STRING_PRO
+namespace Sakura {
+    namespace Core {
+        namespace Types {
+
+            template <typename T>
+            class CompositeLexicalType;
+
+            typedef CompositeLexicalType<const char*> String;
+
+        }
+    }
+}
+#endif
+
+#ifndef LIBRARY
+#include <Core/Types/String.hpp>
+#endif
+
+#endif
+

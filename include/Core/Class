@@ -1,0 +1,19 @@
+#ifndef _CLASS_HPP
+
+#ifndef _CLASS_PRO
+#define _CLASS_PRO
+namespace Sakura {
+    namespace Core {
+
+        class Class;
+
+    }
+}
+#endif
+
+#ifndef LIBRARY
+#include <Core/Class.hpp>
+#endif
+
+#endif
+

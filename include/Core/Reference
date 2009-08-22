@@ -1,0 +1,16 @@
+#ifndef _REFERENCE_HPP
+
+#ifndef _REFERENCE_PRO
+#define _REFERENCE_PRO
+namespace Sakura {
+    namespace Core {
+
+        template <typename T>
+        class Reference;
+
+    }
+}
+#endif
+
+#endif
+

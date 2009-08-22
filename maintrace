@@ -1,0 +1,9 @@
+#!/usr/sbin/dtrace -s
+
+pid$target:libSakuraCore.dylib::entry
+{
+}
+
+pid$target:libSakuraCore.dylib::return
+{
+}

@@ -1,0 +1,19 @@
+#ifndef _APPLICATION_HPP
+
+#ifndef _APPLICATION_PRO
+#define _APPLICATION_PRO
+namespace Sakura {
+    namespace Core {
+
+        class Application;
+
+    }
+}
+#endif
+
+#ifndef LIBRARY
+#include <Core/Application.hpp>
+#endif
+
+#endif
+
