@@ -9,55 +9,52 @@ namespace Sakura {
     namespace Core {
         namespace Types {
 
-            template <typename S>
-            class Integer;
-
-            template <>
-            class Integer<unsigned> : public AbstractType {
+            class UnsignedInteger : public AbstractType {
                 unsigned int value;
             public:
                 typedef unsigned int value_type;
 
-                Integer();
-                Integer(const unsigned int& value);
-                Integer(const Integer<unsigned>& rhs);
+                UnsignedInteger();
+                UnsignedInteger(const unsigned int& value);
+                UnsignedInteger(const UnsignedInteger& rhs);
 
                 virtual unsigned int getValue() const;
 
-                virtual Integer<unsigned>& operator=(const Integer<unsigned>& rhs);
-                virtual Integer<unsigned>& operator=(const unsigned int& rhs);
+                virtual UnsignedInteger& operator=(const UnsignedInteger& rhs);
+                virtual UnsignedInteger& operator=(const unsigned int& rhs);
             };
 
-            template <>
-            class Integer<signed> : public AbstractType {
+            class SignedInteger : public AbstractType {
                 signed int value;
             public:
                 typedef signed int value_type;
 
-                Integer();
-                Integer(const signed int& value);
-                Integer(const Integer<signed>& rhs);
+                SignedInteger();
+                SignedInteger(const signed int& value);
+                SignedInteger(const SignedInteger& rhs);
 
                 virtual signed int getValue() const;
 
-                virtual Integer<signed>& operator=(const Integer<signed>& rhs);
-                virtual Integer<signed>& operator=(const signed int& rhs);
+                virtual SignedInteger& operator=(const SignedInteger& rhs);
+                virtual SignedInteger& operator=(const signed int& rhs);
             };
+
+            typedef SignedInteger Integer;
 
         }
 
         namespace Threading {
 
             template <>
-            class MonitorTrait< Types::Integer<unsigned> > {
+            class MonitorTrait<Types::UnsignedInteger> {
             public:
-                typedef TypeMonitor< Types::Integer<unsigned> > value_type;
+                typedef TypeMonitor<Types::UnsignedInteger> value_type;
             };
 
             template <>
-            class MonitorTrait< Types::Integer<signed> > {
+            class MonitorTrait<Types::SignedInteger> {
             public:
-                typedef TypeMonitor< Types::Integer<signed> > value_type;
+                typedef TypeMonitor< Types::SignedInteger> value_type;
             };
 
         }

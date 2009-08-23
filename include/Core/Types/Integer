@@ -6,8 +6,9 @@ namespace Sakura {
     namespace Core {
         namespace Types {
             
-            template <typename S>
-            class Integer;
+            class SignedInteger;
+            class UnsignedInteger;
+            typedef SignedInteger Integer;
 
         }
     }
@@ -15,7 +16,6 @@ namespace Sakura {
 #endif
 
 #ifndef LIBRARY
-//#include <Core/Threading/TypeMonitor>
 #include <Core/Types/Integer.hpp>
 #endif
 

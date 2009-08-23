@@ -5,43 +5,43 @@ namespace Sakura {
     namespace Core {
         namespace Types {
 
-            Integer<unsigned>::Integer() : value(0) {}
+            UnsignedInteger::UnsignedInteger() : value(0) {}
 
-            Integer<unsigned>::Integer(const unsigned int& value_) : value(value_) {}
+            UnsignedInteger::UnsignedInteger(const unsigned int& value_) : value(value_) {}
 
-            Integer<unsigned>::Integer(const Integer<unsigned>& rhs) : value(rhs.getValue()) {}
+            UnsignedInteger::UnsignedInteger(const UnsignedInteger& rhs) : value(rhs.getValue()) {}
 
-            Integer<unsigned>& Integer<unsigned>::operator=(const unsigned int& rhs) {
+            UnsignedInteger& UnsignedInteger::operator=(const unsigned int& rhs) {
                 this->value = rhs;
                 return *this;
             }
 
-            Integer<unsigned>& Integer<unsigned>::operator=(const Integer<unsigned>& rhs) {
+            UnsignedInteger& UnsignedInteger::operator=(const UnsignedInteger& rhs) {
                 this->value = rhs.getValue();
                 return *this;
             }
 
-            unsigned int Integer<unsigned>::getValue() const {
+            unsigned int UnsignedInteger::getValue() const {
                 return this->value;
             }
 
-            Integer<signed>::Integer() : value(0) {}
+            SignedInteger::SignedInteger() : value(0) {}
 
-            Integer<signed>::Integer(const signed int& value_) : value(value_) {}
+            SignedInteger::SignedInteger(const signed int& value_) : value(value_) {}
 
-            Integer<signed>::Integer(const Integer<signed>& rhs) : value(rhs.getValue()) {}
+            SignedInteger::SignedInteger(const SignedInteger& rhs) : value(rhs.getValue()) {}
 
-            Integer<signed>& Integer<signed>::operator=(const signed int& rhs) {
+            SignedInteger& SignedInteger::operator=(const signed int& rhs) {
                 this->value = rhs;
                 return *this;
             }
 
-            Integer<signed>& Integer<signed>::operator=(const Integer<signed>& rhs) {
+            SignedInteger& SignedInteger::operator=(const SignedInteger& rhs) {
                 this->value = rhs.getValue();
                 return *this;
             }
 
-            signed int Integer<signed>::getValue() const {
+            signed int SignedInteger::getValue() const {
                 return this->value;
             }
 
