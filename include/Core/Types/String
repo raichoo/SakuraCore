@@ -6,10 +6,7 @@ namespace Sakura {
     namespace Core {
         namespace Types {
 
-            template <typename T>
-            class CompositeLexicalType;
-
-            typedef CompositeLexicalType<const char*> String;
+            class String;
 
         }
     }
@@ -17,7 +14,7 @@ namespace Sakura {
 #endif
 
 #ifndef LIBRARY
-#include <Core/Types/String.hpp>
+#include <Core/String.hpp>
 #endif
 
 #endif

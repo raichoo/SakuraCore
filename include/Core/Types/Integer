@@ -5,11 +5,9 @@
 namespace Sakura {
     namespace Core {
         namespace Types {
-
-            template <typename T>
-            class IntegralType;
-
-            typedef IntegralType<signed int> Integer;
+            
+            template <typename S>
+            class Integer;
 
         }
     }
