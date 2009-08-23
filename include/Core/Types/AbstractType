@@ -1,0 +1,19 @@
+#ifndef _ABSTRACTTYPE_HPP
+
+#ifndef _ABSTRACTTYPE_PRO
+#define _ABSTRACTTYPE_PRO
+namespace Sakura {
+    namespace Core {
+
+        class AbstractType;
+
+    }
+}
+#endif
+
+#ifndef LIBRARY
+#include <Core/AbstractType.hpp>
+#endif
+
+#endif
+

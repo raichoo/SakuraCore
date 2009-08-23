@@ -1,4 +1,4 @@
-OBJ = AbstractClass.o AbstractFunctor.o Application.o GarbageCollector.o Message.o Object.o RTTI.o AbstractLock.o IMonitor.o Spinlock.o AbstractType.o LexicalType.o NumericalType.o Process.o
+OBJ = AbstractClass.o AbstractFunctor.o Application.o GarbageCollector.o Message.o Object.o RTTI.o AbstractLock.o IMonitor.o Spinlock.o AbstractType.o String.o Process.o Integer.o
 DIR = /Users/raichoo/Projects/SakuraCore
 INC = $(DIR)/include 
 SRC = $(DIR)/src
@@ -35,9 +35,9 @@ Spinlock.o: $(SRC)/Core/Threading/Spinlock.cpp
 	$(CC) $(CXXFLAGS) -I$(INC) $<
 AbstractType.o: $(SRC)/Core/Types/AbstractType.cpp
 	$(CC) $(CXXFLAGS) -I$(INC) $<
-LexicalType.o: $(SRC)/Core/Types/LexicalType.cpp
+String.o: $(SRC)/Core/Types/String.cpp
 	$(CC) $(CXXFLAGS) -I$(INC) $<
-NumericalType.o: $(SRC)/Core/Types/NumericalType.cpp
+Integer.o: $(SRC)/Core/Types/Integer.cpp
 	$(CC) $(CXXFLAGS) -I$(INC) $<
 Process.o: $(SRC)/Core/Process.cpp
 	$(CC) $(CXXFLAGS) -I$(INC) $<

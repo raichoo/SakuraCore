@@ -1,6 +1,6 @@
 #include <Core/Object.hpp>
 #include <Core/AbstractFunctor.hpp>
-#include <Core/Types/CompositeLexicalType.hpp>
+#include <Core/Types/String.hpp>
 #include <Core/Types/String.hpp>
 #include <Core/Reference.hpp>
 #include <Core/Message.hpp>

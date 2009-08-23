@@ -1,5 +1,5 @@
-#ifndef _INTEGER_TCC
-#define _INTEGER_TCC
+#include <Core/Types/String.hpp>
+#include <Core/Types/Integer.hpp>
 
 namespace Sakura {
     namespace Core {
@@ -48,6 +48,4 @@ namespace Sakura {
         }
     }
 }
-
-#endif
 

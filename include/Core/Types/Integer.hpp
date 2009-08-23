@@ -1,4 +1,6 @@
-#include <Core/Types/AbstractType.hpp>
+#include <Core/Threading/TypeMonitor>
+#include <Core/Threading/MonitorTrait>
+#include <Core/Types/AbstractType>
 
 #ifndef _INTEGER_HPP
 #define _INTEGER_HPP
@@ -20,10 +22,10 @@ namespace Sakura {
                 Integer(const unsigned int& value);
                 Integer(const Integer<unsigned>& rhs);
 
-                unsigned int getValue() const;
+                virtual unsigned int getValue() const;
 
-                Integer<unsigned>& operator=(const Integer<unsigned>& rhs);
-                Integer<unsigned>& operator=(const unsigned int& rhs);
+                virtual Integer<unsigned>& operator=(const Integer<unsigned>& rhs);
+                virtual Integer<unsigned>& operator=(const unsigned int& rhs);
             };
 
             template <>
@@ -36,17 +38,32 @@ namespace Sakura {
                 Integer(const signed int& value);
                 Integer(const Integer<signed>& rhs);
 
-                signed int getValue() const;
+                virtual signed int getValue() const;
 
-                Integer<signed>& operator=(const Integer<signed>& rhs);
-                Integer<signed>& operator=(const signed int& rhs);
+                virtual Integer<signed>& operator=(const Integer<signed>& rhs);
+                virtual Integer<signed>& operator=(const signed int& rhs);
             };
 
         }
+
+        namespace Threading {
+
+            template <>
+            class MonitorTrait< Types::Integer<unsigned> > {
+            public:
+                typedef TypeMonitor< Types::Integer<unsigned> > value_type;
+            };
+
+            template <>
+            class MonitorTrait< Types::Integer<signed> > {
+            public:
+                typedef TypeMonitor< Types::Integer<signed> > value_type;
+            };
+
+        }
+
     }
 }
-
-#include <Core/Types/Integer.tcc>
 
 #endif
 

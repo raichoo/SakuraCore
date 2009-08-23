@@ -20,15 +20,19 @@ public:
 };
 
 class MyApplication : public Application {
-    Reference<Types::String>  s;
-    Reference<Types::Integer> i;
+    Reference<Types::String>              s;
+    Reference< Types::Integer<signed> >   i;
+    Reference< Types::Integer<unsigned> > u;
 public:
     MyApplication(int argc, const char** argv) { 
-        i = new synchronized<Types::Integer>(666);
+        i = new synchronized< Types::Integer<signed> >(666);
+        u = new Types::Integer<unsigned>(666);
         s = new Types::String("This is a test");
-        i->attachFunctor(new TestFunctor<Types::Integer>, "TestFunctor");
+        i->attachFunctor(new TestFunctor < Types::Integer<signed> >, "TestFunctor");
+        u->attachFunctor(new TestFunctor < Types::Integer<unsigned> >, "TestFunctor");
         s->attachFunctor(new TestFunctor<Types::String>, "TestFunctor");
         i->sendMessage(new Message("TestFunctor"));
+        u->sendMessage(new Message("TestFunctor"));
         s->sendMessage(new Message("TestFunctor"));
     }
 };

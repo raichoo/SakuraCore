@@ -1,5 +1,5 @@
 #include <Core/Object.hpp>
-#include <Core/Types/CompositeLexicalType.hpp>
+#include <Core/Types/String.hpp>
 #include <Core/Reference.hpp>
 #include <Core/Message.hpp>
 #include <Core/RTTI.hpp>

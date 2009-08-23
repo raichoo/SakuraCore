@@ -14,7 +14,7 @@ namespace Sakura {
             };
 
             template <typename T>
-            class synchronized<T, false> :public MonitorTrait<T>::value_type {
+            class synchronized<T, false> : public MonitorTrait<T>::value_type {
             public:
                 synchronized() {}
             };
