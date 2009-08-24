@@ -6,10 +6,8 @@ namespace Sakura {
     namespace Core {
         namespace Types {
             
-            class SignedInteger;
-            class UnsignedInteger;
-            typedef SignedInteger Integer;
-
+            template <typename S, int B>
+            class Integer;
         }
     }
 }

@@ -9,52 +9,79 @@ namespace Sakura {
     namespace Core {
         namespace Types {
 
-            class UnsignedInteger : public AbstractType {
-                unsigned int value;
-            public:
-                typedef unsigned int value_type;
+            template <typename S_, int B_>
+            class IntegerTrait;
 
-                UnsignedInteger();
-                UnsignedInteger(const unsigned int& value);
-                UnsignedInteger(const UnsignedInteger& rhs);
-
-                virtual unsigned int getValue() const;
-
-                virtual UnsignedInteger& operator=(const UnsignedInteger& rhs);
-                virtual UnsignedInteger& operator=(const unsigned int& rhs);
-            };
-
-            class SignedInteger : public AbstractType {
-                signed int value;
+            template <>
+            class IntegerTrait<signed, 32> {
             public:
                 typedef signed int value_type;
-
-                SignedInteger();
-                SignedInteger(const signed int& value);
-                SignedInteger(const SignedInteger& rhs);
-
-                virtual signed int getValue() const;
-
-                virtual SignedInteger& operator=(const SignedInteger& rhs);
-                virtual SignedInteger& operator=(const signed int& rhs);
+                static const bool SIGNED = true;
+                static const size_t SIZE = 32;
             };
 
-            typedef SignedInteger Integer;
+            template <>
+            class IntegerTrait<unsigned, 32> {
+            public:
+                typedef unsigned int value_type;
+                static const bool SIGNED = false;
+                static const size_t SIZE = 32;
+            };
+
+
+            template <typename S = signed, int B = 32>
+            class Integer : public AbstractType {
+                typename IntegerTrait<S, B>::value_type  value;
+            public:
+                typedef typename IntegerTrait<S, B>::value_type value_type;
+
+                Integer();
+                Integer(const typename IntegerTrait<S, B>::value_type& value);
+                Integer(const Integer<S, B>& rhs);
+
+                virtual typename IntegerTrait<S ,B>::value_type  getValue() const;
+
+                virtual Integer<S, B>& operator=(const Integer<S, B>& rhs);
+                virtual Integer<S, B>& operator=(const typename IntegerTrait<S, B>::value_type& rhs);
+                Integer<S, B> operator+(const typename IntegerTrait<S, B>::value_type& rhs);
+                Integer<S, B> operator+(const Integer<S, B>& rhs);
+                Integer<S, B> operator-(const typename IntegerTrait<S, B>::value_type& rhs);
+                Integer<S, B> operator-(const Integer<S, B>& rhs);
+                Integer<S, B> operator*(const typename IntegerTrait<S, B>::value_type& rhs);
+                Integer<S, B> operator*(const Integer<S, B>& rhs);
+                Integer<S, B> operator/(const typename IntegerTrait<S, B>::value_type& rhs);
+                Integer<S, B> operator/(const Integer<S, B>& rhs);
+                Integer<S, B> operator%(const typename IntegerTrait<S, B>::value_type& rhs);
+                Integer<S, B> operator%(const Integer<S, B>& rhs);
+            };
+
+            template <typename T>
+            class ReverseIntegerTrait;
+
+            template <>
+            class ReverseIntegerTrait<signed int> {
+            public:
+                typedef Integer<signed, 32> value_type;
+            };
+
+            template <>
+            class ReverseIntegerTrait<unsigned int> {
+            public:
+                typedef Integer<unsigned, 32> value_type;
+            };
+
+            template <typename T>
+            typename ReverseIntegerTrait<T>::value_type operator+(const T& lhs, const typename ReverseIntegerTrait<T>::value_type& rhs);
 
         }
 
         namespace Threading {
 
             template <>
-            class MonitorTrait<Types::UnsignedInteger> {
+            template <typename S, int B>
+            class MonitorTrait< Types::Integer<S, B> > {
             public:
-                typedef TypeMonitor<Types::UnsignedInteger> value_type;
-            };
-
-            template <>
-            class MonitorTrait<Types::SignedInteger> {
-            public:
-                typedef TypeMonitor< Types::SignedInteger> value_type;
+                typedef TypeMonitor< Types::Integer<S, B> > value_type;
             };
 
         }
