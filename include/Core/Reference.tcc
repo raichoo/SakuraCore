@@ -95,6 +95,12 @@ namespace Sakura {
 
         template <typename T>
         Reference<T>& Reference<T>::operator=(const Reference<T>& rhs) {
+#ifdef DEBUG
+            std::cout << "RF: Assigning(T&) Reference<" 
+                << demangle(typeid(T).name())  
+                << "> to " 
+                << &rhs << " at " << this << std::endl;
+#endif
             if (this->ref == &rhs)
                 return *this;
             Sakura::Core::gc->unregisterRegion(this->ref,this);
@@ -102,18 +108,30 @@ namespace Sakura {
             Sakura::Core::gc->registerRegion(this->ref,this);
             return *this;
         }
-
+/*
         template <typename T>
         Reference<T>& Reference<T>::operator=(const typename T::value_type& rhs) {
-            Sakura::Core::gc->unregisterRegion(this->ref,this);
+ #ifdef DEBUG
+            std::cout << "RF: Assigning(T::value_type&) Reference<" 
+                << demangle(typeid(T).name())  
+                << "> to " 
+                << rhs << " at " << this << std::endl;
+#endif
+           Sakura::Core::gc->unregisterRegion(this->ref,this);
             this->ref = new T(rhs);
             Sakura::Core::gc->registerRegion(this->ref,this);
             return *this;
         }
-
+*/
         template <typename T>
         template <typename U>
         Reference<T>& Reference<T>::operator=(const Reference<U>& rhs) {
+#ifdef DEBUG
+            std::cout << "RF: Assigning(U&) Reference<" 
+                << demangle(typeid(T).name())  
+                << "> to " 
+                << &rhs << " at " << this << std::endl;
+#endif
             if (this->ref == &rhs)
                 return *this;
             Sakura::Core::gc->unregisterRegion(this->ref,this);

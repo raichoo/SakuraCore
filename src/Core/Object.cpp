@@ -37,11 +37,11 @@ namespace Sakura {
 */
         Reference<Object> Object::sendMessage(Reference<Message> msg) {
             if(!this->functors)
-                return static_cast<Object*>(0);
+                return 0;
             AbstractFunctor* func = &((*this->functors)[msg->functorName()->getValue()]);
             this->forwardMessage(msg);
             if(!func) {
-                return static_cast<Object*>(0);
+                return 0;
             }
             return (*func)(this,msg->arguments());
         }

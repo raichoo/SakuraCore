@@ -5,6 +5,8 @@
 #include <Core/Reference.hpp>
 #include <Core/Message.hpp>
 
+#include <iostream>
+
 namespace Sakura {
     namespace Core {
 
@@ -12,7 +14,7 @@ namespace Sakura {
         : functor(functor_), args(args_) {}
 
         Message::Message(Reference<Types::String> functor_) 
-        : functor(functor_), args(static_cast<Object*>(0)) {}
+        : functor(functor_), args(static_cast<Object*>(0)) { std::cout << "BLAAA!" << std::endl;}
 
         Reference<Sakura::Core::Types::String> Message::functorName() const {
             return this->functor;

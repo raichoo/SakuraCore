@@ -1,0 +1,9 @@
+- delegates
+- sane exception framework
+- messages should contain sender
+- improve garbagecollector
+- getClass
+- add reference propeties
+- object properties
+- improve monitor framework
+- type casts

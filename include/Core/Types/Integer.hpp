@@ -72,7 +72,14 @@ namespace Sakura {
 
             template <typename T>
             typename ReverseIntegerTrait<T>::value_type operator+(const T& lhs, const typename ReverseIntegerTrait<T>::value_type& rhs);
-
+            template <typename T>
+            typename ReverseIntegerTrait<T>::value_type operator-(const T& lhs, const typename ReverseIntegerTrait<T>::value_type& rhs);
+            template <typename T>
+            typename ReverseIntegerTrait<T>::value_type operator*(const T& lhs, const typename ReverseIntegerTrait<T>::value_type& rhs);
+            template <typename T>
+            typename ReverseIntegerTrait<T>::value_type operator/(const T& lhs, const typename ReverseIntegerTrait<T>::value_type& rhs);
+            template <typename T>
+            typename ReverseIntegerTrait<T>::value_type operator%(const T& lhs, const typename ReverseIntegerTrait<T>::value_type& rhs);
         }
 
         namespace Threading {

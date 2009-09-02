@@ -22,7 +22,7 @@ namespace Sakura {
             ~Reference();
 
             Reference<T>& operator=(const Reference<T>& rhs);
-            Reference<T>& operator=(const typename T::value_type& rhs);
+            //Reference<T>& operator=(const typename T::value_type& rhs);
 
             T* operator->();
             T* operator&() const;
