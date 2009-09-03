@@ -9,12 +9,12 @@ namespace Sakura {
     namespace Core {
 
         class Message : public Object {
-            Reference<Types::String> functor;
+            Types::String functor;
             Reference<Object> args;
         public:
-            Message(Reference<Types::String> functor);
-            Message(Reference<Types::String> functor, Reference<Object> args);
-            Reference<Types::String> functorName() const;
+            Message(Types::String functor);
+            Message(Types::String functor, Reference<Object> args);
+            Types::String functorName() const;
             Reference<Object> arguments();
         };
 

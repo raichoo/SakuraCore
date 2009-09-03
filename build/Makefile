@@ -5,7 +5,7 @@ SRC = $(DIR)/src
 
 DEBUG = -DDEBUG
 CC = llvm-g++
-CXXFLAGS = $(DEBUG) -DLIBRARY -c -O2 -g -ansi -pedantic -std=c++98
+CXXFLAGS = $(DEBUG) -DLIBRARY -c -O2 -g -ansi -pedantic -std=c++98 -Wall
 LDFLAGS = -dynamiclib
 
 TARGET = libSakuraCore.dylib

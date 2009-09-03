@@ -10,13 +10,13 @@
 namespace Sakura {
     namespace Core {
 
-        Message::Message(Reference<Types::String> functor_, Reference<Object> args_)
+        Message::Message(Types::String functor_, Reference<Object> args_)
         : functor(functor_), args(args_) {}
 
-        Message::Message(Reference<Types::String> functor_) 
-        : functor(functor_), args(static_cast<Object*>(0)) { std::cout << "BLAAA!" << std::endl;}
+        Message::Message(Types::String functor_) 
+        : functor(functor_) {}
 
-        Reference<Sakura::Core::Types::String> Message::functorName() const {
+        Types::String Message::functorName() const {
             return this->functor;
         }
 

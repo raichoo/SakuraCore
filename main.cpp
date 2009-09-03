@@ -14,24 +14,22 @@ template <typename T>
 class TestFunctor : public AbstractFunctor {
 public:
     Reference<Object> operator()(Reference<Object> self, Reference<Object> args) {
-        std::cout << self->as<T>()->getValue() << std::endl;
-        std::cout << "Called" << std::endl;
+        std::cout << self->as< Types::Integer<signed> >()->getValue() << std::endl;
+        return 0;
     }
 };
 
-Reference< Types::Integer<signed> > test(Reference< Types::Integer<signed> > i) {
-    std::cout << i->getValue() << std::endl;
-    return 666;
-}
-
 class MyApplication : public Application {
-    Reference< Types::Integer<signed> >   i;
+    Reference< Types::Integer<signed> > i;
 public:
     MyApplication(int argc, const char** argv) { 
-        i = 666;
+        Reference<Message> m;
+        i = new Types::Integer<signed>(666);
         std::cout << i->getValue() << std::endl;
-     //   i->attachFunctor(new TestFunctor< Types::Integer<signed> >,   "TestFunctor");
-     //   i->sendMessage(new Message("TestFunctor", 0));
+        i->attachFunctor(new TestFunctor< Types::Integer<signed> >, "TestFunctor");
+        std::cout << "Calling..." << std::endl;
+        i->sendMessage(new Message("TestFunctor"));
+        std::cout << "End..." << std::endl;
     }
 };
 

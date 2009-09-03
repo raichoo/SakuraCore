@@ -38,8 +38,8 @@ namespace Sakura {
         Reference<Object> Object::sendMessage(Reference<Message> msg) {
             if(!this->functors)
                 return 0;
-            AbstractFunctor* func = &((*this->functors)[msg->functorName()->getValue()]);
-            this->forwardMessage(msg);
+            AbstractFunctor* func = &((*this->functors)[msg->functorName().getValue()]);
+            //this->forwardMessage(msg);
             if(!func) {
                 return 0;
             }
@@ -56,10 +56,10 @@ namespace Sakura {
             return NULL;
         }
 
-         void Object::attachFunctor(Reference<AbstractFunctor> func, Reference<Types::String> name) {
+         void Object::attachFunctor(Reference<AbstractFunctor> func, Types::String name) {
             if(!this->functors)
                 this->functors = new std::map< std::string, Reference<AbstractFunctor> >();
-            (*this->functors)[name->getValue()] = func;
+            (*this->functors)[name.getValue()] = func;
         }
 
          void Object::attachFunctor(Reference<AbstractFunctor> func) {
@@ -68,20 +68,20 @@ namespace Sakura {
             (*this->functors)[demangle(typeid(*func).name())] = func;
         }
        
-        void Object::detachFunctor(Reference<Types::String> name) {
+        void Object::detachFunctor(Types::String name) {
             if(!this->functors)
                 return;
-            this->functors->erase(name->getValue());
+            this->functors->erase(name.getValue());
             if(this->functors->size() == 0) {
                 delete this->functors;
                 this->functors = 0;
             }
         }
 
-        bool Object::respondsToMessage(Reference<Types::String> message) {
+        bool Object::respondsToMessage(Types::String message) {
             if(!this->functors)
                 return false;
-            return &((*this->functors)[message->getValue()]);
+            return &((*this->functors)[message.getValue()]);
         }
 
         void Object::forwardMessage(Reference<Message> msg) {} //HOOK

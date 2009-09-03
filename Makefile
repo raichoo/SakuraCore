@@ -3,7 +3,7 @@ INC = $(DIR)/include
 LIB = $(DIR)/build
 DEBUG = -DDEBUG
 CC = llvm-g++
-CXXFLAGS = $(DEBUG) -O2 -g -ansi -pedantic -std=c++98
+CXXFLAGS = $(DEBUG) -O2 -g -ansi -pedantic -std=c++98 -Wall
 
 all: main.cpp
 	$(CC) $(CXXFLAGS) -I$(INC) -L$(LIB) -l SakuraCore $< -o main 

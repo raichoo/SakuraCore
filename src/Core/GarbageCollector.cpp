@@ -34,6 +34,8 @@ namespace Sakura {
             if (obj == 0)
                 return;
 #ifdef DEBUG
+            if (!this->containsObject(obj))
+                std::cout << "GC: Freeing weird stuff" << std::endl;
             std::cout << "GC: unregister " << obj->getTypeID()
                 << "(" << obj << ") with size " 
                 << obj->getSize() << " at " << ref  
@@ -51,7 +53,7 @@ namespace Sakura {
         }
 
         bool regionsContainsReference(Object* obj, void* ref) {
-            int diff = reinterpret_cast<Object*>(ref) - obj;
+            unsigned int diff = reinterpret_cast<Object*>(ref) - obj;
             if (diff < 0)
                 return false;
             if (diff < obj->getSize())

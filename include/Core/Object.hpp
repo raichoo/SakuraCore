@@ -28,9 +28,9 @@ namespace Sakura {
             virtual Reference<Object> sendMessage(Reference<Message> msg);
             static Reference<Object> sendMessage(Object* recv, Reference<Message> msg);
             virtual void attachFunctor(Reference<AbstractFunctor> func);
-            virtual void attachFunctor(Reference<AbstractFunctor> func, Reference<Types::String> name);
-            virtual void detachFunctor(Reference<Types::String> name);
-            bool respondsToMessage(Reference<Types::String> message); //TODO: make const
+            virtual void attachFunctor(Reference<AbstractFunctor> func, Types::String name);
+            virtual void detachFunctor(Types::String name);
+            bool respondsToMessage(Types::String message); //TODO: make const
             size_t getSize() const;
 
             template <typename T>

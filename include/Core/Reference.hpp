@@ -12,9 +12,7 @@ namespace Sakura {
         public:
             Reference();
             Reference(const T* rhs);
-            Reference(const typename T::value_type& rhs);
             Reference(const Reference<T>& rhs);
-            Reference(const T& rhs);
 
             template <typename U>
             Reference(const Reference<U>& rhs);
@@ -22,7 +20,6 @@ namespace Sakura {
             ~Reference();
 
             Reference<T>& operator=(const Reference<T>& rhs);
-            //Reference<T>& operator=(const typename T::value_type& rhs);
 
             T* operator->();
             T* operator&() const;

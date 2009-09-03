@@ -12,18 +12,6 @@
 namespace Sakura {
     namespace Core {
 
-
-        template <typename T>
-        Reference<T>::Reference(const T& rhs) : ref(new T(rhs)) {
-#ifdef DEBUG
-            std::cout << "RF: Creating(T&) Reference<" 
-                << demangle(typeid(T).name())  
-                << "> for " 
-                << rhs << " at " << this << std::endl;
-#endif
-            Sakura::Core::gc->registerRegion(this->ref,this);
-        }
-
         template <typename T>
         Reference<T>::Reference(const Reference<T>& rhs) : ref(0) {
 #ifdef DEBUG
@@ -51,7 +39,7 @@ namespace Sakura {
         Reference<T>::Reference() : ref(0) {
 #ifdef DEBUG
             std::cout << "RF: Creating() Reference<"
-                << demangle(typeid(T).name()) << ">" << std::endl;    
+                << demangle(typeid(T).name()) << "> at " << this << std::endl;    
 #endif
         }
 
@@ -68,18 +56,6 @@ namespace Sakura {
             if (this->ref != 0) {
                 Sakura::Core::gc->registerRegion(this->ref,this);
             }
-        }
-
-        template <typename T>
-        Reference<T>::Reference(const typename T::value_type& rhs) {
-            this->ref = new T(rhs);
-#ifdef DEBUG
-            std::cout << "RF: Creating(T::value_type&) Reference<" 
-                << demangle(typeid(T).name())  
-                << "> for " 
-                << rhs << " at " << this << std::endl;
-#endif
-            Sakura::Core::gc->registerRegion(this->ref,this);
         }
 
         template <typename T>
@@ -108,21 +84,7 @@ namespace Sakura {
             Sakura::Core::gc->registerRegion(this->ref,this);
             return *this;
         }
-/*
-        template <typename T>
-        Reference<T>& Reference<T>::operator=(const typename T::value_type& rhs) {
- #ifdef DEBUG
-            std::cout << "RF: Assigning(T::value_type&) Reference<" 
-                << demangle(typeid(T).name())  
-                << "> to " 
-                << rhs << " at " << this << std::endl;
-#endif
-           Sakura::Core::gc->unregisterRegion(this->ref,this);
-            this->ref = new T(rhs);
-            Sakura::Core::gc->registerRegion(this->ref,this);
-            return *this;
-        }
-*/
+
         template <typename T>
         template <typename U>
         Reference<T>& Reference<T>::operator=(const Reference<U>& rhs) {
