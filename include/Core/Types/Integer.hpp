@@ -80,6 +80,7 @@ namespace Sakura {
             typename ReverseIntegerTrait<T>::value_type operator/(const T& lhs, const typename ReverseIntegerTrait<T>::value_type& rhs);
             template <typename T>
             typename ReverseIntegerTrait<T>::value_type operator%(const T& lhs, const typename ReverseIntegerTrait<T>::value_type& rhs);
+
         }
 
         namespace Threading {
@@ -95,6 +96,8 @@ namespace Sakura {
 
     }
 }
+
+#include <Core/Types/Integer.tcc>
 
 #endif
 

@@ -25,7 +25,7 @@ namespace Sakura {
 
         template <typename T>
         template <typename U>
-        Reference<T>::Reference(const Reference<U>& rhs) : ref(0) {
+        Reference<T>::Reference(const Reference<U>& rhs) {
 #ifdef DEBUG
             std::cout << "RF: Creating(Reference<U>&) Reference<" 
                 << demangle(typeid(T).name())  

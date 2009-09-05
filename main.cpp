@@ -14,7 +14,9 @@ template <typename T>
 class TestFunctor : public AbstractFunctor {
 public:
     Reference<Object> operator()(Reference<Object> self, Reference<Object> args) {
-        std::cout << self->as< Types::Integer<signed> >()->getValue() << std::endl;
+        std::cout << &self << std::endl;
+        std::cout << self->getTypeID() << std::endl;
+        std::cout << static_cast< Types::Integer<signed>* >(&self)->getValue() << std::endl;
         return 0;
     }
 };
@@ -26,6 +28,7 @@ public:
         Reference<Message> m;
         i = new Types::Integer<signed>(666);
         std::cout << i->getValue() << std::endl;
+        std::cout << dynamic_cast< Types::Integer<signed>* >(&i) << std::endl;
         i->attachFunctor(new TestFunctor< Types::Integer<signed> >, "TestFunctor");
         std::cout << "Calling..." << std::endl;
         i->sendMessage(new Message("TestFunctor"));
